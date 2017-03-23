@@ -33,12 +33,5 @@ class WelcomeController extends Controller
         return view('welcome');
     }
 
-    /**
-     * [联系我]
-     * @return Response
-     */
-    public function contact()
-    {
-        return view('pages.contact');
-    }
+   
 }
