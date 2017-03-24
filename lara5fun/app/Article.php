@@ -11,6 +11,7 @@ class Article extends Model {
 		'title',
 		'body',
 		'published_at',
+		'user_id',
 	];
 
 	/**
@@ -29,6 +30,15 @@ class Article extends Model {
 	public function scopePublished($query)
 	{
 		$query->where('published_at','<=',Carbon::now());
+	}
+
+	/**
+	 * 多篇文章同属于一个作者
+	 * @return Model
+	 */
+	public function user()
+	{
+		return $this->belongsTo('App\User');
 	}
 
 }
