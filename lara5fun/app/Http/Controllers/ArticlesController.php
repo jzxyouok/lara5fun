@@ -52,4 +52,24 @@ class ArticlesController extends Controller
     	Article::create($input);
     	return redirect('articles');
     }
+
+    /**
+     * 跳转到文章编辑界面
+     * @param  [int] $id 文章 ID
+     * @return Response
+     */
+    public function edit($id)
+    {
+    	$article = Article::findOrFail($id);
+    	return view("articles.edit",compact('article'));
+    }
+
+
+    public function update($id,CreateArticleRequest $request)
+    {	
+    	$article = Article::findOrFail($id);
+    	$article->update($request->all());
+
+    	return redirect('articles');
+    }
 }
