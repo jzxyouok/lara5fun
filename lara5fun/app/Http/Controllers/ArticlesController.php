@@ -3,8 +3,9 @@
 use App\Article;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Http\Requests\CreateArticleRequest;
 use Carbon\Carbon;
-use Request;
+// use Request;
 // use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
@@ -44,10 +45,9 @@ class ArticlesController extends Controller
      * 保存文章数据
      * @return url
      */
-    public function store()
+    public function store(CreateArticleRequest $request)
     {
-    	$input = Request::all();  
-    	// $input["published_at"] = Carbon::now();
+    	$input = $request->all();  
 
     	Article::create($input);
     	return redirect('articles');
