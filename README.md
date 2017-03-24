@@ -7,4 +7,6 @@
 1. [使用 composer 快速创建项目.md](https://github.com/ihuangmx/lara5fun/blob/master/1.%20使用%20composer%20快速创建项目.md)
 2. [路由、控制器以及视图简介.md](https://github.com/ihuangmx/lara5fun/blob/master/2.路由、控制器以及视图简介.md)
 3. [数据传递](https://github.com/ihuangmx/lara5fun/blob/master/3.数据传递.md)
-4. [初始 Blade](https://github.com/ihuangmx/lara5fun/blob/master/4.初识%20Blade.md)
+4. [初识 Blade](https://github.com/ihuangmx/lara5fun/blob/master/4.初识%20Blade.md)
+5. [数据库配置与迁移]()
+6. 
