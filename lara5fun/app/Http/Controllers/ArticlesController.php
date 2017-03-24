@@ -32,9 +32,9 @@ class ArticlesController extends Controller
      * @param  [int] $id [文章 ID]
      * @return Response
      */
-    public function show($id)
-    {
-    	$article = Article::findOrFail($id);
+    public function show($article)
+    {	
+    	dd($article);
     	return view('articles.show',compact('article'));
     }
 
@@ -64,9 +64,8 @@ class ArticlesController extends Controller
      * @param  [int] $id [文章 ID]
      * @return Response
      */
-    public function edit($id)
+    public function edit($article)
     {
-    	$article = Article::findOrFail($id);
     	return view("articles.edit",compact('article'));
     }
 
@@ -76,11 +75,10 @@ class ArticlesController extends Controller
      * @param  CreateArticleRequest $request [验证]
      * @return url
      */
-    public function update($id,CreateArticleRequest $request)
+    public function update($article,CreateArticleRequest $request)
     {	
-    	$article = Article::findOrFail($id);
-    	$article->update($request->all());
 
+    	$article->update($request->all());
     	return redirect('articles');
     }
 }
