@@ -9,4 +9,6 @@
 3. [数据传递](https://github.com/ihuangmx/lara5fun/blob/master/3.数据传递.md)
 4. [初识 Blade](https://github.com/ihuangmx/lara5fun/blob/master/4.初识%20Blade.md)
 5. [数据库配置与迁移]()
-6. 
+6. [初识 Eloquent]()
+7. [显示博客文章]()
+8. [文章的创建功能实现]()
