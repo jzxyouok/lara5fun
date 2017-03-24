@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\CreateArticleRequest;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 // use Request;
 // use Illuminate\Http\Request;
 
@@ -48,14 +49,14 @@ class ArticlesController extends Controller
     public function store(CreateArticleRequest $request)
     {
     	$input = $request->all();  
-
-    	Article::create($input);
+    	$article = new Article($input);
+    	Auth::user()->articles()->save($article);
     	return redirect('articles');
     }
 
     /**
      * 跳转到文章编辑界面
-     * @param  [int] $id 文章 ID
+     * @param  [int] $id [文章 ID]
      * @return Response
      */
     public function edit($id)
@@ -64,7 +65,12 @@ class ArticlesController extends Controller
     	return view("articles.edit",compact('article'));
     }
 
-
+    /**
+     * 文章更新数据写入
+     * @param  [int]               $id      [用户 ID]
+     * @param  CreateArticleRequest $request [验证]
+     * @return url
+     */
     public function update($id,CreateArticleRequest $request)
     {	
     	$article = Article::findOrFail($id);
