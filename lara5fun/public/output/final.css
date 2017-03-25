@@ -1,5 +1,5 @@
 .normalize {
-	margin: 10;
+	margin: 0;
 }
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
@@ -6215,7 +6215,7 @@ label,
   font-weight: 300;
 }
 body {
-  padding-top: 400px;
+  padding-top: 40px;
 }
 
 /*# sourceMappingURL=app.css.map */
