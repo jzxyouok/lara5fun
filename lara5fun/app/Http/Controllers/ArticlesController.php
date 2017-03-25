@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Requests\CreateArticleRequest;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 // use Request;
 // use Illuminate\Http\Request;
 
@@ -22,7 +23,7 @@ class ArticlesController extends Controller
      * @return Response
      */
     public function index()
-    {
+    {	
         $articles = Article::latest('published_at')->published()->get();
         return view('articles.index', compact('articles'));
     }
@@ -51,11 +52,16 @@ class ArticlesController extends Controller
      * @return url
      */
     public function store(CreateArticleRequest $request)
-    {
+    {	
+
     	$input = $request->all();  
     	$article = new Article($input);
     	Auth::user()->articles()->save($article);
-    	return redirect('articles');
+
+    	return redirect('articles')->with([
+    		'flash_message' => "文章创建成功",
+    		'flash_message_important' => true
+    		]);
     }
 
     /**

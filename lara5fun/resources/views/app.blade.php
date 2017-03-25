@@ -10,9 +10,14 @@
 </head>
 <body>
 	<div class="container">
+		
+		@include('partials.flash')
 		@yield('content')
 	</div>
 
 	@yield('footer')
+	<script>
+		$('div.alert').not('.alert-important').delay(3000).slideUp(300);
+	</script>
 </body>
 </html>
