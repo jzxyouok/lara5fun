@@ -1,3 +1,6 @@
+.normalize {
+	margin: 0;
+}
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -6211,8 +6214,7 @@ label,
 .checkbox label {
   font-weight: 300;
 }
-body {
-  padding-top: 400px;
-}
 
 /*# sourceMappingURL=app.css.map */
+
+/*# sourceMappingURL=all.css.map */

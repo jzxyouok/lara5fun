@@ -29,12 +29,11 @@ class ArticlesController extends Controller
 
     /**
      * 显示某篇文章
-     * @param  [int] $id [文章 ID]
+     * @param  [Object]   $article   [根据 ID 生成的文章实例]
      * @return Response
      */
-    public function show($article)
+    public function show(Article $article)
     {	
-    	dd($article);
     	return view('articles.show',compact('article'));
     }
 
@@ -61,21 +60,21 @@ class ArticlesController extends Controller
 
     /**
      * 跳转到文章编辑界面
-     * @param  [int] $id [文章 ID]
+     * @param  [Object]   $article   [根据 ID 生成的文章实例]
      * @return Response
      */
-    public function edit($article)
+    public function edit(Article $article)
     {
     	return view("articles.edit",compact('article'));
     }
 
     /**
      * 文章更新数据写入
-     * @param  [int]               $id      [用户 ID]
+     * @param  [Object]   $article   [根据 ID 生成的文章实例]
      * @param  CreateArticleRequest $request [验证]
      * @return url
      */
-    public function update($article,CreateArticleRequest $request)
+    public function update(Article $article,CreateArticleRequest $request)
     {	
 
     	$article->update($request->all());
